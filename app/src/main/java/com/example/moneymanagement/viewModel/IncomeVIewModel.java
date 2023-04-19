@@ -1,4 +1,4 @@
-package com.example.moneymanagement.ViewModel;
+package com.example.moneymanagement.viewModel;
 
 import android.content.Context;
 

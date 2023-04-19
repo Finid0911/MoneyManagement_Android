@@ -1,7 +1,7 @@
 package com.example.moneymanagement.itemView;
 
 
-import static com.example.moneymanagement.ViewModel.AccountViewModel.mcontext;
+import static com.example.moneymanagement.viewModel.AccountViewModel.mcontext;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,8 +51,6 @@ public class AccountItemView extends RecyclerView.ViewHolder{
     public void bind(Account account, String key){
         tName.setText(account.getName());
         tMoney.setText(account.getMoney());
-        System.out.println(account.getName());
-        System.out.println(account.getMoney());
         this.key = key;
     }
 

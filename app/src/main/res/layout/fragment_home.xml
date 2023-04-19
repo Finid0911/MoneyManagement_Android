@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gray2"
+    android:background="@color/white"
     tools:context=".Views.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <data>
+        <variable
+            name="AccountViewModel"
+            type="com.example.moneymanagement.viewModel.AccountViewModel" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -82,10 +86,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:text="100.000.000"
+                    android:text="@{AccountViewModel.printTotal}"
                     android:textColor="@color/blue1"
                     android:textSize="30dp"
                     android:textStyle="bold"
+                    android:visibility="visible"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/total" />
 
@@ -95,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
-                    android:text="đ"
+                    android:text="$"
                     android:textColor="@color/blue1"
                     android:textSize="30dp"
                     android:textStyle="bold"
@@ -338,4 +343,4 @@
 
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+</layout>

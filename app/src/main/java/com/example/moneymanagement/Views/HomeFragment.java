@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.moneymanagement.Model.Account;
+import com.example.moneymanagement.Model.Transaction;
 import com.example.moneymanagement.R;
-import com.example.moneymanagement.ViewModel.AccountViewModel;
-import com.example.moneymanagement.firebaseHelper.FirebaseHelper;
+import com.example.moneymanagement.viewModel.ExpendViewModel;
+import com.example.moneymanagement.firebaseHelper.FirebaseHelper_Transaction;
 
 import java.util.List;
 
@@ -70,6 +70,28 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = view.findViewById(R.id.rvTransaction);
+
+        new FirebaseHelper_Transaction().readData(new FirebaseHelper_Transaction.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
+                new ExpendViewModel().setConfig(recyclerView, getActivity(), transactions, keys);
+            }
+
+            @Override
+            public void DataIsInsert() {
+
+            }
+
+            @Override
+            public void DataIsUpdate() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
 
         return view;
 

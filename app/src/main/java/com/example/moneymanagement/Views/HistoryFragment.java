@@ -12,11 +12,9 @@ import android.widget.TextView;
 
 import com.example.moneymanagement.Model.Transaction;
 import com.example.moneymanagement.R;
-import com.example.moneymanagement.ViewModel.AccountViewModel;
-import com.example.moneymanagement.ViewModel.ExpendViewModel;
-import com.example.moneymanagement.ViewModel.IncomeVIewModel;
+import com.example.moneymanagement.viewModel.ExpendViewModel;
+import com.example.moneymanagement.viewModel.IncomeVIewModel;
 import com.example.moneymanagement.firebaseHelper.FirebaseHelper_Transaction;
-import com.example.moneymanagement.itemView.IncomeItemView;
 
 import java.util.List;
 

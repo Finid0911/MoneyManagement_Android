@@ -17,6 +17,11 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountItemView> {
         this.accList = accList;
         this.keys = keys;
     }
+
+    public List<Account> getAccList() {
+        return accList;
+    }
+
     @Override
     public AccountItemView onCreateViewHolder(ViewGroup parent, int viewType) {
         return new AccountItemView(parent);
