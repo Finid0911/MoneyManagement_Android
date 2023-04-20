@@ -32,7 +32,9 @@ public class HistoryFragment extends Fragment {
     private RecyclerView recyclerView;
     private TextView incometxt, outtxt;
     private Spinner spSapXep;
-    private int lastSelected = -1;
+    private int lastSelected = 0;
+    private boolean incomeSelected = true;
+    private boolean expendSelected = false;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,7 +84,7 @@ public class HistoryFragment extends Fragment {
         incometxt = view.findViewById(R.id.inTxt);
         outtxt = view.findViewById(R.id.exTxt);
         spSapXep = view.findViewById(R.id.spinner2);
-        String[] options = {"Tăng dần", "Giảm dần"};
+        String[] options = {"Mặc định","Tăng dần", "Giảm dần"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, options);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spSapXep.setAdapter(adapter);
@@ -91,6 +93,52 @@ public class HistoryFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 lastSelected = position;
+                if (incomeSelected){
+                    new FirebaseHelper_Transaction().readData2(new FirebaseHelper_Transaction.DataStatus() {
+                        @Override
+                        public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
+                            new IncomeVIewModel().setConfig(recyclerView, getActivity(), transactions, keys,lastSelected);
+                        }
+                        @Override
+                        public void DataIsInsert() {
+
+                        }
+
+                        @Override
+                        public void DataIsUpdate() {
+
+                        }
+
+                        @Override
+                        public void DataIsDeleted() {
+
+                        }
+                    });
+                }
+                if (expendSelected){
+                    new FirebaseHelper_Transaction().readData(new FirebaseHelper_Transaction.DataStatus() {
+                        @Override
+                        public void DataIsLoaded(List<Transaction> transactions, List<String> keys) {
+                            new ExpendViewModel().setConfig(recyclerView, getActivity(), transactions, keys,lastSelected);
+                        }
+
+                        @Override
+                        public void DataIsInsert() {
+
+                        }
+
+                        @Override
+                        public void DataIsUpdate() {
+
+                        }
+
+                        @Override
+                        public void DataIsDeleted() {
+
+                        }
+                    });
+                }
+
             }
 
             @Override
@@ -144,6 +192,8 @@ public class HistoryFragment extends Fragment {
 
                     }
                 });
+                incomeSelected = true;
+                expendSelected = false;
             }
         });
         outtxt.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +220,8 @@ public class HistoryFragment extends Fragment {
 
                     }
                 });
+                incomeSelected = false;
+                expendSelected =  true;
             }
         });
 
