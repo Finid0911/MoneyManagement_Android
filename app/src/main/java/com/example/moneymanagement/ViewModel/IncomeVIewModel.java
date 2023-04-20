@@ -25,7 +25,7 @@ public class IncomeVIewModel {
         recyclerView.setAdapter(incomeAdapter);
         List<Transaction> datalist = incomeAdapter.getIncome();
         List<String> k = incomeAdapter.getKey();
-        if (position==0){
+        if (position==1){
             Collections.sort(datalist, new Comparator<Transaction>() {
                 @Override
                 public int compare(Transaction e1, Transaction e2) {
@@ -33,7 +33,7 @@ public class IncomeVIewModel {
                 }
             });
         }
-        if (position==1){
+        if (position==2){
             Collections.sort(datalist, new Comparator<Transaction>() {
                 @Override
                 public int compare(Transaction e1, Transaction e2) {
