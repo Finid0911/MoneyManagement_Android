@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setting">Cài đặt</string>
+    <string name="user_setting">Thiết lập </string>
+    <string name="all_category">Danh mục</string>
+    <string name="language_setting">Ngôn ngữ</string>
+    <string name="about">Khác</string>
+    <string name="log_out">Đăng xuất</string>
+    <string name="en">en</string>
+    <string name="vn">vn</string>
+</resources>

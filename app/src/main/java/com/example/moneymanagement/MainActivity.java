@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.example.moneymanagement.Views.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         viewPager = findViewById(R.id.view_pager);
@@ -46,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         }));
+
+
+
 
     }
 
