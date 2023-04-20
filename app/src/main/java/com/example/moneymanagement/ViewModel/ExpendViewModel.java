@@ -25,7 +25,7 @@ public class ExpendViewModel {
         recyclerView.setAdapter(transAdapter);
         List<Transaction> datalist = transAdapter.getExpense();
         List<String> k = transAdapter.getKey();
-        if (position==0){
+        if (position==1){
             Collections.sort(datalist, new Comparator<Transaction>() {
                 @Override
                 public int compare(Transaction e1, Transaction e2) {
@@ -33,7 +33,7 @@ public class ExpendViewModel {
                 }
             });
         }
-        if (position==1){
+        if (position==2){
             Collections.sort(datalist, new Comparator<Transaction>() {
                 @Override
                 public int compare(Transaction e1, Transaction e2) {
